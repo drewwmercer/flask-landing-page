@@ -16,5 +16,8 @@ def about_us():
 # more dynamic routing
 @app.route('/user/<username>/')
 def profile(username):
-    # return '<h1>Hello</h1>'
     return '<p>username: {username}</p>'.format(username=username)
+
+@app.route('/jobs/<job_id>/')
+def jobs(job_id):
+    return '<p>job id: {job_id}</p>'.format(job_id=job_id)
