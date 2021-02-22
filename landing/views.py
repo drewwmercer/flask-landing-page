@@ -12,12 +12,3 @@ def contact_us():
 @app.route('/about-us/')
 def about_us():
     return '<h1>About Us</h1>'
-
-# more dynamic routing
-@app.route('/user/<username>/')
-def profile(username):
-    return '<p>username: {username}</p>'.format(username=username)
-
-@app.route('/jobs/<job_id>/')
-def jobs(job_id):
-    return '<p>job id: {job_id}</p>'.format(job_id=job_id)
