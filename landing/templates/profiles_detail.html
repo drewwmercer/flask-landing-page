@@ -1,7 +1,11 @@
-<h1>Profile Details: {{ username }}</h1>
+<h1>Profile Details: {{ context.user }}</h1>
 
 {% for i in some_list %}
 {{ i }}</br>
 {% endfor %}
 
-{{ context.user }}
+{% if context.right_user %}
+<h3>Success</h3>
+{% endif %}
+
+{{ context.admin_user_msg }}
