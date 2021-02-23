@@ -1,30 +1,44 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock title %} 
+{% block title %}Home{% endblock title %}
 
 {% block content %}
 
-<h1>Sign Up Today</h1>
+<div class='col-10 mx-auto'>
 
-<form method='POST'>
-    {{ form.csrf_token }}
-    <input type='text' name='full_name' placeholder='Your full name'/>
+    <h1>Sign Up Today</h1>
 
-    {% if form.full_name.errors %}
-        {% for error in form.full_name.errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-    {% endif %}
+    <form method='POST'>
+        {{ form.csrf_token }}
 
-    <input type='email' name='email' placeholder='your@email.com'/>
+        <div>
+            <label for='full_name'>{{ form.full_name.label }}</label>
+            {{ form.full_name }}
 
-    {% if form.email.errors %}
-        {% for error in form.email.errors %}
-            <li>{{ error }}</li>
-        {% endfor %}
-    {% endif %}
+            {% if form.full_name.errors %}
+            <div class='alert alert-danger'>
+                {% for error in form.full_name.errors %}
+                <span class='mr-1'>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
 
-    <input type='submit' value='Join' />
-</form>
+        <div>
+            <label for='email'>{{ form.email.label }}</label>
+            {{ form.email }}
 
-{% endblock content %} 
+            {% if form.email.errors %}
+            <div class='alert alert-danger'>
+                {% for error in form.email.errors %}
+                <span class='mr-1'>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <input type='submit' value='Join' />
+    </form>
+</div>
+
+{% endblock content %}
