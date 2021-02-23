@@ -1,6 +1,13 @@
-from flask import render_template
+from flask import render_template, request
 from landing import app
 
-@app.route('/')
+from .forms import LandingForm
+
+@app.route('/', methods=['GET','POST'])
 def home():
-    return render_template('home.html')
+    form = LandingForm()
+    if form.validate_on_submit():
+        print(form.full_name.data)
+        print(form.email.data)
+       
+    return render_template('home.html', form=form)

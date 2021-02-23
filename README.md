@@ -3,4 +3,4 @@
 ##
 - dev
     - pipenv shell
-    - flask run
+    - flask run --reload --debugger
