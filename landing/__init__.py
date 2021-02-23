@@ -7,7 +7,7 @@ app = Flask(__name__)
 csrf = CSRFProtect(app)
 
 db_path = os.path.join(os.path.dirname(__file__), 'db.sqlite3')
-db_uri = 'sqlite:///{}'.format(db_path) # tells Flask and SQLAlchemy where the db will be stored
+dburi = 'sqlite:///{}'.format(db_path) # tells Flask and SQLAlchemy where the db will be stored
 
 # secret key
 # wtf csrf secret key
